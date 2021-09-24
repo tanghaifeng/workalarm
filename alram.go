@@ -5,12 +5,7 @@ import (
 	_ "github.com/andlabs/ui/winmanifest"
 )
 
-func main()  {
-	// go build  -ldflags="-H windowsgui"
-	task()
-}
-
-func task() {
+func main() {
 	ui.Main(func() {
 		drinkWater := ui.NewLabel(`1: 要么喝水`)
 
@@ -28,10 +23,10 @@ func task() {
 		box.Append(run, true)
 
 		window := ui.NewWindow(`身体是革命的本钱，你自己悠着点`, 600, 200, true)
-		// 窗口容器绑定
 		window.SetChild(box)
+
 		window.SetMargined(true)
-		// 设置：窗口关闭时
+
 		window.OnClosing(func(*ui.Window) bool {
 			// 窗体关闭
 			ui.Quit()
